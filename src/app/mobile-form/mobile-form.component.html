@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="question">
+        <h2>Q3. Make a form having</h2>
+        <ul>
+            <li>A input for phone number</li>
+            <li>A button to add another number labelled "Add another phone number"</li>
+            <li>A submit button</li>
+        </ul>
+        <p>Upon clicking the "Add another phone number" Button, a new input field should be added to the
+            form dynamically. The purpose of this form is to get all the phone numbers that a person holds. If
+            the number of input fields for phone number is greater than 1 then, consider adding delete
+            buttons to each input field.</p>
+        <p>The "Submit" button should log an array to the console having all the phone numbers in a format
+            </p>
+    </div>
+
+    <div class="solution">
+        <h2>Solution: </h2>
+        <form action="" [formGroup] = "mobileForm">
+            <div formArrayName = "mobiles">
+                
+                <div *ngFor = "let mobile of mobiles.controls; let i=index;">
+                    <label for="mobile">Mobile Number {{i+1}}: </label>
+                    <div fxLayoutAlign = "row" fxLayoutGap='10px'>
+                        <input class='form-control w-200' type="number" [formControlName] = "i">
+                        <button class="btn btn-danger" *ngIf = "i != 0" (click) = "removeNumber(i)">&times;</button>
+                    </div>
+                </div> <br>
+                <button mat-raised-button (click) = "addNewMobile()">Add new mobile</button>
+            </div>
+            <br>
+            <div>
+                <button [disabled] = "mobileForm.invalid" mat-raised-button color='primary' (click) = "submit()">Submit</button>
+            </div>            
+            <div class="output" *ngIf = "formValue">
+                {{formValue | json}}
+            </div>
+        </form>        
+    </div>
+</div>

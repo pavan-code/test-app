@@ -1,0 +1,20 @@
+<div class='container'>
+    <div class="question">
+        <h2>Q1. Find the missing number?</h2>
+        <p>2,3,10,15,26,35,50,63,?</p>
+        <p>Implement the solution within Angular in which, a text box is given along with a button.
+            User can enter any index of the series and at the button click; the page should display the number
+            at that entered index.</p>
+    </div>
+
+    <div class="solution">
+        <h2>Solution: </h2>
+        <p><b>Considering the index starting from 1</b></p>
+        <label for="index">Enter the index</label><br>
+        <input class='form-control w-200' type="number" min='1' style="width: 200px;" name="index" #index> <br>
+        <div *ngIf = "value">
+            <p>Value at the index {{index.value}} of the above sequence is {{value}} </p>
+        </div>
+        <button mat-raised-button (click)="getValue(index.value)">Get value</button>       
+    </div>
+</div>

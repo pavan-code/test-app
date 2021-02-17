@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="question">
+        <h2>Q4. In the home module make 4 components. Place the 4 components in 4 different
+            corners of the screen like so...</h2>
+            <p>Now make a 5th component in the center of the screen having an input field inside its HTML.
+                Build a communication system among all 5 components such that the text in the input box is
+                displayed in all other components like so....</p>
+    </div>
+    <h2>Solution: </h2>
+    <div class="container box">
+        <div class="top-left">
+            <app-child1 [text] = "value"></app-child1>
+        </div>
+        <div class="top-right">
+            <app-child2 [text] = "value"></app-child2>
+        </div>
+        <input class="form-control center w-200" type="text" [value] = "value" (keyup) = "update($event)">
+        <div class="bottom-left">
+            <app-child3 [text] = "value"></app-child3>
+        </div>
+        <div class="bottom-right">
+            <app-child4 [text] = "value"></app-child4>
+        </div>
+    </div>
+</div>
